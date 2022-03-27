@@ -10,14 +10,14 @@ import java.util.List;
 
 public class DatabasePage {
 	String columnValue = null;
-	Connection connection = null;
+	Connection connection = null;//interface //refference variable
 	Statement statement = null;
 	ResultSet rs = null;
-	//List<String> dataList = new ArrayList<String>();
+	//List<String> dataList = new ArrayList<String>();//when we have multiple data
 	
 	
 	public String getData(String columnName) throws SQLException {
-		try {//setting properties for mysql
+		try {//setting properties for mysql to pull data
 			Class.forName("com.mysql.cj.jdbc.Driver");//this is class that we have to call
 			String sqlUrl = "jdbc:mysql://localhost:3306/sep2021";
 			String sqlUsername = "root";
@@ -25,7 +25,6 @@ public class DatabasePage {
 			String query = "Select * from users";
 			
 			//Create connection to local database
-			//interface //refference variable
 			connection = DriverManager.getConnection(sqlUrl, sqlUsername, sqlPassword);
 			//Empowering the connection reference variable to excectue queries
 			statement = connection.createStatement();
@@ -40,8 +39,8 @@ public class DatabasePage {
 		catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			if (rs != null) {//because we get infinite in while loop we use if
-				rs.close();//once we get the value close
+			if (rs != null) {//because we get infinite in while loop we use if 
+				rs.close(); //once we get the value close
 			}
 			if (connection != null) {
 				connection.close();

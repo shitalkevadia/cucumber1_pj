@@ -21,17 +21,16 @@ public class TestBase {
 	public static void initDriver() {
 		//inialising the driver
 		System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
-		driver = new ChromeDriver();
 		//TestBase tbobj = new TestBase();
 		driver = new ChromeDriver();
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);//pageload timeout
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		//driver.get("https://techfios.com/billing/?ng=login/");
 	}
 	
-	public void takeScreenshot(WebDriver driver) throws IOException {
+	public static void takeScreenshot(WebDriver driver) throws IOException {
 		TakesScreenshot ts = (TakesScreenshot)driver;//creating reference variable //driver we typecasting
 		File sourceFile  = ts.getScreenshotAs(OutputType.FILE);//its source file
 		
@@ -39,13 +38,12 @@ public class TestBase {
 		Date date = new Date();
 		String lable = formatter.format(date);
 		
-		
 		String currentDiractery = System.getProperty("user.dir");
         FileUtils.copyFile(sourceFile, new File(currentDiractery + "/screenshot/" + lable + ".png"));//screenshot is folders name
 	}
-	
 	public static int generateRandomNumber(int boundaryNumber) {
-		Random random = new Random(999);
+		Random random = new Random();
+//		int newgeneratedNo = random.nextInt(boundaryNumber);
 		return random.nextInt(boundaryNumber);
 
 	}

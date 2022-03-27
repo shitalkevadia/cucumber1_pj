@@ -28,7 +28,7 @@ public class LoginPage {
 		PASSWORD_ELEMENT.sendKeys(password);
 	}
 
-	public void clickSignin() {
+	public void clickSigninbutton() {
 		SIGNIN_ELEMENT.click();
 	}
 

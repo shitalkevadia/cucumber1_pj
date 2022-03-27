@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class BankAndCash {
+public class BankAndCashPage {
 
 	public static WebDriver driver;
 
@@ -49,7 +49,6 @@ public class BankAndCash {
 
 	public void clicksOnNewAccount() {
 		NEW_ACCOUNT_ELEMENT.click();
-
 	}
 
 	public void getpagesource() {
